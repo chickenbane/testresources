@@ -19,28 +19,28 @@ class ExampleUnitTest {
 
     @Test
     fun testFile() {
-        val file = File("src/test/resources/hardToRead.json")
+        val file = File("src/test/resources/harderToRead.json")
         assertTrue(file.exists())
         val string = file.readText()
-        assertEquals("content length", 42, string.length)
+        assertEquals("content length", 52, string.length)
     }
 
     @Test
     fun testClassLoaderResource() {
-        val resource = javaClass.classLoader.getResource("hardToRead.json")
+        val resource = javaClass.classLoader.getResource("harderToRead.json")
         assertNotNull(resource)
         val file = File(resource.file)
         assertTrue(file.exists())
         val string = file.readText()
         System.out.println("my string=$string")
-        assertEquals("content length", 42, string.length)
+        assertEquals("content length", 52, string.length)
     }
 
     @Test
     fun testClassLoaderResourceStream() {
-        val stream = javaClass.classLoader.getResourceAsStream("hardToRead.json")
+        val stream = javaClass.classLoader.getResourceAsStream("harderToRead.json")
         assertNotNull(stream)
         val string = stream.bufferedReader().use { it.readText() }
-        assertEquals("content length", 42, string.length)
+        assertEquals("content length", 52, string.length)
     }
 }
